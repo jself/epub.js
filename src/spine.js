@@ -163,6 +163,11 @@ class Spine {
 		this.spineByHref[decodeURI(section.href)] = index;
 		this.spineByHref[encodeURI(section.href)] = index;
 		this.spineByHref[section.href] = index;
+		try {
+			var sections = section.href.split('/')
+			this.spineByHref[sections[sections.length-1]] = index;
+		} catch {
+		}
 
 		this.spineById[section.idref] = index;
 
