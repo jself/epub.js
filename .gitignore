@@ -5,6 +5,5 @@ components
 node_modules
 bower_components
 books
-lib
 documentation/html
 types/*.js
