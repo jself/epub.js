@@ -13113,6 +13113,11 @@ class Spine {
       // Remove fragments
       target = target.split("#")[0];
       index = this.spineByHref[target] || this.spineByHref[encodeURI(target)];
+      if (typeof index === "undefined" && target.indexOf('/') > -1) {
+        let segments = target.split('/');
+        target = segments[segments.length - 1];
+        index = this.spineByHref[target] || this.spineByHref[encodeURI(target)];
+      }
     }
     return this.spineItems[index] || null;
   }
